@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P1-M23</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6;}
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .header { background-color: #4CAF50; color: white; text-align: center; padding: 10px; }
+        .dropdown { margin-bottom: 20px; }
+        .dropdown select {font-size: 1em; padding: 5px;}
+        .activity { margin-bottom: 20px; }
+         .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .content { display: none; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+         table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+         span[style*="color: red;"] {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+             const selectedTime = document.getElementById('class-time').value;
+            const activity2 = document.getElementById('activity-2');
+             const activity4 = document.getElementById('activity-4');
+             const pasos6y7act4 = document.querySelectorAll('#activity_4_content tr:nth-child(n+7):nth-child(-n+8)');
+
+
+            if (selectedTime === '45') {
+                activity2.style.display = 'none';
+                  pasos6y7act4.forEach(element => {
+                    element.style.display = 'table-row';
+                });
+                if (activity4) activity4.style.display = 'block';
+
+
+            } else if (selectedTime === '40') {
+                activity2.style.display = 'none';
+                  pasos6y7act4.forEach(element => {
+                    element.style.display = 'none';
+                });
+                if (activity4) activity4.style.display = 'block';
+
+            } else {
+                activity2.style.display = 'block';
+                  pasos6y7act4.forEach(element => {
+                    element.style.display = 'table-row';
+                });
+                if (activity4) activity4.style.display = 'block';
+
+            }
+
+            document.getElementById('selected-time').innerText = `Tiempo efectivo de clase: ${selectedTime} minutos`;
+        }
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook-P1-M23</h1>
+    </div>
+    <div class="container">
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+        <!-- Actividad 0 -->
+         <div id="activity-0" class="activity" data-time="N/A">
+            <div class="banner" onclick="toggleContent('activity_0_content')">
+                <div class="title">🔍 Actividad 0: Revisión de Misión</div>
+                  <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                   <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                    Verificación inicial del equipo y materiales necesarios para completar la misión.
+                </div>
+            </div>
+            <div id="activity_0_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                           <strong>Paso 1:</strong> Proyectar la diapositiva 1 "Revisión de Misión". Verificar que:
+                            <ul>
+                                <li>Los dispositivos estén encendidos y tienen acceso a Scratch Jr.</li>
+                                <li>Las Magic Tablets estén disponibles.</li>
+                                <li>El espacio de trabajo esté organizado.</li>
+                            </ul>
+                        </td>
+                        <td style="padding: 10px; vertical-align: top;">N/A</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+                   <!-- Actividad 1 -->
+        <div id="activity-1" class="activity" data-time="3">
+            <div class="banner" onclick="toggleContent('activity_1_content')">
+                <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 3 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                    Bienvenida al grupo, poses temáticas, agradecimiento y presentación de los objetivos del show de preguntas y respuestas.
+                </div>
+            </div>
+            <div id="activity_1_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                         <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                         <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                     </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 2 "¡Bienvenidos al Show de Preguntas!". Saludar a los estudiantes con entusiasmo y energía.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Hola, Genios! 🎤 ¡Bienvenidos al show de preguntas y respuestas más divertido de todos! Hoy vamos a crear nuestros propios juegos, donde seremos tanto los presentadores como los participantes. ¿Están listos para usar su creatividad y lógica? ¡Prepárense para el desafío!</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (1,5 minutos):</strong> Proyectar la diapositiva 3 "¿Listos para el Show?". Mostrar opciones visuales de poses temáticas (¡Energía de Presentador! y Necesito Más Energía). Pedir que representen cómo se sienten usando estas poses.</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Estrellas del show! ✨ Muéstrenme cómo se sienten hoy: - Si están llenos de energía y listos para presentar sus juegos, hagan la Pose de ¡Energía de Presentador! (levanten los brazos con energía y muestren una gran sonrisa 😄). - Si necesitan un poco más de energía para comenzar el show, hagan la Pose de Necesito Más Energía (crucen los brazos y bajen un poco la cabeza como si necesitaran recargar energía 😴). ¡Observen a sus compañeros! ¿Quiénes están listos para la acción y quiénes necesitan un poco más de impulso?</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (0,5 minutos):</strong> Proyectar la diapositiva 4 "Ritual de Agradecimiento en el Show". Guiar a los estudiantes para realizar el ritual en conjunto.</td>
+                        <td style="padding: 10px; vertical-align: top;">Ahora todos juntos, juntemos nuestras manos y digamos: '¡Gracias por estar aquí, Genios! Hoy vamos a crear juegos, hacer preguntas ingeniosas y divertirnos mucho. ¡A dar lo mejor en este show!'</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 4 (0,5 minutos):</strong> Proyectar la diapositiva 5 "Objetivos de la Misión en el Show". Enumerar los objetivos de la misión en un formato claro y motivador.</td>
+                         <td style="padding: 10px; vertical-align: top;">Hoy tenemos una misión de show, Genios: <br><br> <strong>1.</strong> Vamos a crear diálogos con preguntas sencillas y respuestas divertidas. <br><br> <strong>2.</strong> Diseñaremos juegos con preguntas de opción múltiple y reacciones correctas e incorrectas. <br><br> <strong>3.</strong> ¡Vamos a presentar nuestros juegos y celebrar la creatividad de todos! Será un show de preguntas y respuestas inolvidable!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Actividad 2 -->
+        <div id="activity-2" class="activity" data-time="4">
+             <div class="banner" onclick="toggleContent('activity_2_content')">
+                <div class="title">🧠 Actividad 2: Brain Gym ⏰ Tiempo: 4 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                   Juego de roles con palabras y movimientos para activar el cerebro y prepararse para los retos de los juegos de preguntas y respuestas.
+                </div>
+            </div>
+            <div id="activity_2_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 6 "¡Palabras en Acción!". Explicar que realizarán un juego de roles con palabras y movimientos para activar el cerebro y prepararse para los retos de los juegos de preguntas y respuestas.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Creadores de Juegos! 🎤 Vamos a activar nuestras mentes con un juego de palabras y acciones, ¡listos para crear los juegos más increíbles! Prepárense para conectar sus ideas con sus movimientos y despertar su memoria mientras nos preparamos para nuestra misión.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (2 minutos):</strong> Guiar a los estudiantes en tres rondas: <br><br> <strong>Ronda de Palabras Clave:</strong> El profesor dirá una palabra relacionada con el show, y los estudiantes deberán realizar un movimiento específico. <br><br> <strong>Ronda de Conexión:</strong> El profesor dirá dos palabras relacionadas, y los estudiantes deberán realizar un movimiento que las conecte. <br><br> <strong>Ronda de Memoria:</strong> El profesor dirá tres palabras diferentes, y los estudiantes deberán repetir las palabras en el orden correcto y luego realizar un movimiento para cada una.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Ahora, Genios, vamos a conectar nuestras mentes y cuerpos en un show de palabras y acciones! ✨ <br><br> - <strong>Ronda de Palabras Clave:</strong> Escuchen atentamente las palabras que diré: 'pregunta', 'respuesta', 'aplauso'. Recuerden los movimientos: para 'pregunta' levantan un dedo, para 'respuesta' hacen un círculo con las manos, para 'aplauso' aplauden. <br><br> - <strong>Ronda de Conexión:</strong> Ahora les diré palabras relacionadas, recuerden cómo conectar: 'pregunta' y 'respuesta' (se señalan mutuamente), 'micrófono' y 'presentador' (simulan hablar por un micrófono), 'premio' y 'celebración' (saltan con alegría). <br><br> - <strong>Ronda de Memoria:</strong> Escuchen con atención y recuerden tres palabras: 'luz', 'cámara', 'acción'. Ahora, repitan las palabras en orden y luego hagan un movimiento para cada una: 'luz' (hacen como si prendieran una luz), 'cámara' (simulan estar filmando) y 'acción' (hacen un movimiento de energía). ¡Sientan cómo su memoria y creatividad se activan con cada ronda!</td>
+                    </tr>
+                     <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (1,5 minutos):</strong> Proyectar la diapositiva 8 "¡Listos para la Creación!". Preguntar a los estudiantes cómo se sienten después del juego y cómo esta conexión entre palabras, movimientos y memoria los prepara para el desafío de crear sus propios juegos de preguntas y respuestas en Scratch Jr.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Excelente trabajo, Creadores de Juegos! 🌟 Ahora, cuéntennos, ¿cómo se sienten después de este juego de palabras en acción? ¿Sienten su memoria más despierta y su creatividad más activa? Recuerden, esta conexión entre palabras, movimientos y memoria nos ayudará a crear juegos de preguntas muy originales en Scratch Jr. ¡Prepárense para hacer magia en la pantalla!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>     
+               <!-- Actividad 3 -->
+        <div id="activity-3" class="activity" data-time="24.5">
+            <div class="banner" onclick="toggleContent('activity_3_content')">
+                <div class="title">🚀 Actividad 3: Challenge ⏰ Tiempo: 24.5 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                   Desafío para crear juegos de preguntas y respuestas en tres niveles de dificultad, con diferentes enfoques de interacción.
+                </div>
+            </div>
+            <div id="activity_3_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 9 "¡El Desafío del Show!". Explicar a los estudiantes que trabajarán en tres niveles de dificultad para crear sus propios juegos de preguntas y respuestas.</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Creadores de Juegos, llegó el momento estelar de nuestro show! 🌟 Hoy vamos a poner a prueba todas nuestras habilidades en Scratch Jr. con tres desafíos emocionantes: 'Mi Pregunta y Respuesta', 'Mi Juego de Opciones', y 'Mi Concurso de Reacciones'. Cada desafío les permitirá crear juegos únicos y divertidos. ¡Elijan su nivel y prepárense para el gran estreno!</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (2 minutos):</strong> Proyectar la diapositiva 10 "Niveles del Desafío en el Show". Explicar claramente los objetivos, instrucciones, <span style="color: red; font-weight: bold;">condiciones</span> y un <span style="color: red; font-weight: bold;">consejo</span> útil para cada nivel, incluyendo el texto completo de los challenges.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Atención, Genios! Aquí están los desafíos que les esperan en nuestro show: <br><br> <strong>Nivel Rookie (Básico): 'Mi Pregunta y Respuesta'</strong> <br><br> Nombre del Reto: '¡Mi Saludo Preguntón!' <br><br>  <span style="color: red; font-weight: bold;">Objetivo:</span> Crear un diálogo entre dos personajes donde uno hace una pregunta sencilla y el otro responde, con el tema y personajes que elijan. <br><br> <span style="color: red; font-weight: bold;">Instrucciones:</span> Abre un nuevo proyecto en Scratch Jr. Elige dos personajes que te gusten. Programa al primer personaje para que haga una pregunta sencilla. Programa al segundo personaje para que dé una respuesta que tenga sentido con la pregunta. <br><br> <span style="color: red; font-weight: bold;">Condiciones:</span> El primer personaje debe hacer una pregunta. El segundo personaje debe dar una respuesta que se relacione con la pregunta. <br><br> <span style="color: red; font-weight: bold;">Consejo:</span> ¡Piensa en una pregunta y una respuesta que sean divertidas! <br><br> <strong>Nivel Master (Intermedio): 'Mi Juego de Opciones'</strong> <br><br> Nombre del Reto: '¡Mi Juego de las Dos Opciones!'  <br><br> <span style="color: red; font-weight: bold;">Objetivo:</span> Crear un juego donde un personaje haga una pregunta con dos opciones y otro personaje dé la respuesta correcta, con la temática y personajes que deseen.  <br><br> <span style="color: red; font-weight: bold;">Instrucciones:</span> Abre un nuevo proyecto en Scratch Jr. Elige dos personajes para tu juego. Programa al primer personaje para que haga una pregunta con dos opciones. Programa al segundo personaje para que tenga dos respuestas diferentes: Una respuesta correcta cuando el usuario elige la opción adecuada. Una respuesta incorrecta cuando el usuario elige la otra opción. <br><br> <span style="color: red; font-weight: bold;">Condiciones:</span> El primer personaje debe hacer una pregunta con dos opciones de respuesta. El segundo personaje debe responder correctamente según la opción que elijan. <br><br> <span style="color: red; font-weight: bold;">Consejo:</span> Piensa en una pregunta con dos opciones que sean interesantes y usa bloques de "condición" para las respuestas.  <br><br> <strong>Nivel Hacker (Avanzado): 'Mi Concurso de Reacciones'</strong> <br><br> Nombre del Reto: '¡Mi Gran Concurso de Reacciones!' <br><br>  <span style="color: red; font-weight: bold;">Objetivo:</span> Crear un concurso donde un personaje hace preguntas de opción múltiple y otro personaje reacciona de diferente manera según la respuesta elegida (sonido, movimiento, cambio de disfraz, etc.) <br><br>  <span style="color: red; font-weight: bold;">Instrucciones:</span> Abre un nuevo proyecto en Scratch Jr. Elige dos personajes. Programa al primer personaje para que haga preguntas de opción múltiple (ej: ¿Cuántas patas tiene un perro? a) 2, b) 4, c) 6). Programa al segundo personaje para que tenga una reacción diferente dependiendo de la opción que el usuario elija: Reacción correcta: Si el usuario elige la opción correcta el personaje hará un movimiento de alegría, emitirá un sonido de celebración o cambiará de disfraz. Reacción incorrecta: Si el usuario elige una opción incorrecta, el personaje hará un movimiento de tristeza, emitirá un sonido de error o cambiará a un disfraz de desilusión. Crea al menos 3 preguntas diferentes. <br><br>  <span style="color: red; font-weight: bold;">Condiciones:</span> El juego debe tener al menos 3 preguntas de opción múltiple. El segundo personaje debe reaccionar de manera diferente según si la respuesta es correcta o incorrecta. <br><br> <span style="color: red; font-weight: bold;">Consejo:</span> ¡Usa toda la creatividad! Los disfraces y los sonidos le darán un toque divertido a tu juego."</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                       <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (20 minutos):</strong> Proyectar la diapositiva 11 "¡A Crear el Show!". Supervisar a los estudiantes mientras trabajan, ayudándolos a cumplir las condiciones y resolver dudas.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Es hora de crear, Genios del Show! 🎬 Elijan su desafío: - Rookie: ¡Creen su saludo preguntón! - Master: ¡Diseñen un juego de opciones! - Hacker: ¡Preparen un concurso de reacciones! ¡Muestren su ingenio y creatividad en este gran show de preguntas y respuestas!</td>
+                    </tr>
+                     <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 4 (2 minutos):</strong> Proyectar la diapositiva 12 "¡Presentando el Show!". Facilitar que los estudiantes muestren sus proyectos y expliquen cómo lograron cumplir con las condiciones de cada nivel.</td>
+                         <td style="padding: 10px; vertical-align: top;">"¡Increíbles shows, Creadores! 🌟 Ahora, compartan sus creaciones: - Rookie: ¿Qué pregunta y respuesta crearon? - Master: ¿Cómo lograron que su juego de opciones funcionara? - Hacker: ¿Cómo diseñaron esas reacciones tan divertidas? ¡Inspírense unos a otros con sus increíbles juegos!"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Actividad 4 -->
+        <div id="activity-4" class="activity" data-time="10">
+            <div class="banner" onclick="toggleContent('activity_4_content')">
+                <div class="title">🤝 Actividad 4: Team Gnius ⏰ Tiempo: 10 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                    Colaboración en equipos para revisar y mejorar los juegos de preguntas y respuestas.
+                </div>
+            </div>
+            <div id="activity_4_content" class="content">
+                 <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 13 "¡Equipos de Show!". Pedir a los estudiantes que formen equipos con compañeros cercanos para realizar la actividad de colaboración.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Creadores de Juegos, es hora de unir fuerzas en el escenario! 🤝 Júntense con dos o tres compañeros cercanos para formar sus equipos de show. Juntos compartirán ideas, mejorarán sus juegos y harán que sus shows sean aún más increíbles.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (1 minuto):</strong> Proyectar la diapositiva 14 "Roles en el Show". Pedir a los equipos que distribuyan roles: - Director del Show. - Diseñador de Preguntas. - Experto en Reacciones.</td>
+                       <td style="padding: 10px; vertical-align: top;">¡Cada equipo necesita un plan de show! 🌟 Decidan juntos quién será: - Director del Show: Lidera y organiza el proyecto. - Diseñador de Preguntas: Se encarga de crear preguntas ingeniosas. - Experto en Reacciones: Se enfoca en las reacciones de los personajes. ¡Organícense en un minuto, Genios!</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                         <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (1 minuto):</strong> Proyectar la diapositiva 15 "Herramientas del Show". Pedir a los estudiantes que recojan Magic Tablets u otros materiales necesarios para trabajar.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Es hora de recoger las herramientas del show! 🌟 Cada equipo necesitará sus Magic Tablets u otros materiales para registrar sus ideas y trabajar juntos. ¡Tienen 30 segundos para prepararse, directores, diseñadores y expertos en reacciones!</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 4 (2 minutos):</strong> Proyectar la diapositiva 16 "¡Revisión del Show!". Pedir a los estudiantes que observen los proyectos de sus compañeros y respondan a preguntas clave para proporcionar retroalimentación.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Directores, diseñadores y expertos en reacciones, a observar con atención! 🔎 Revisen los shows de sus compañeros y respondan estas preguntas: - ¿Qué les pareció la creatividad de las preguntas y respuestas? - ¿Cómo podrían mejorar las reacciones de los personajes? - ¿Qué detalles les inspiraron y podrían usar en sus propios juegos? ¡Sean curiosos y constructivos en sus comentarios!</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 5 (3 minutos):</strong> Proyectar la diapositiva 17 "¡Turno del Show!". Pedir a los estudiantes que se turnen para explicar sus proyectos y recibir preguntas del equipo.</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Es su turno de brillar como creadores de shows! 🌟 Por turnos, expliquen cómo diseñaron sus juegos: - ¿Qué preguntas y respuestas crearon y qué los hizo especiales? - ¿Cómo lograron programar las reacciones de los personajes? - ¿Qué hace que su show sea único? El resto del equipo hará preguntas para aprender más. ¡Luego cambien de rol y muestren sus creaciones!</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 6 (3 minutos):</strong> Proyectar la diapositiva 18 "¡Ajustes en Equipo!". Dar tiempo a los equipos para trabajar juntos en los ajustes sugeridos durante la revisión.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Es tiempo de perfeccionar sus shows, Genios! 🚀 Tomen las ideas que compartieron y ajusten sus juegos. Recuerden, la creatividad y la lógica son la clave para un show increíble. ¡Trabajen juntos para que sus juegos sean aún más geniales y emocionantes!</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 7 (2 minutos):</strong> Proyectar la diapositiva 19 "¡Reflexión en Equipo del Show!". Facilitar preguntas como: - ¿Qué aprendieron de trabajar juntos? - ¿Cómo mejoraron sus proyectos gracias a las ideas de sus compañeros? - ¿Qué fue lo más divertido de crear un show juntos?</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Directores, diseñadores y expertos en reacciones, reflexionemos sobre este show! 🌿 - ¿Qué aprendieron trabajando juntos en equipo? - ¿Cómo mejoraron sus shows gracias a las ideas de sus compañeros? - ¿Qué fue lo más divertido de crear juegos de preguntas y respuestas juntos? ¡El trabajo en equipo siempre nos lleva a lo más alto en la creatividad!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+                <!-- Actividad 5 -->
+        <div id="activity-5" class="activity" data-time="2.5">
+            <div class="banner" onclick="toggleContent('activity_5_content')">
+                <div class="title">🏅 Actividad 5: Honor the Lab ⏰ Tiempo: 2.5 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                    Reflexión sobre los logros del show, reconocimiento del esfuerzo y organización del espacio de trabajo.
+                </div>
+            </div>
+             <div id="activity_5_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 20 "¡Revisión de Objetivos en el Show!". Guiar a los estudiantes en una breve reflexión grupal sobre lo aprendido y logrado durante la clase.</td>
+                        <td style="padding: 10px; vertical-align: top;">"¡Creadores de Shows, qué gran presentación hemos tenido hoy! 🌟 Reflexionemos juntos: - ¿Cumplimos nuestra misión de hoy? ¡Sí! Creamos diálogos con preguntas y respuestas, diseñamos juegos con opciones y reacciones, y compartimos nuestra creatividad. ¡Todo gracias a su talento y esfuerzo! 🎤"</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (1 minuto):</strong> Realizar el reconocimiento de logros mediante un mensaje verbal motivador.</td>
+                        <td style="padding: 10px; vertical-align: top;">"¡Felicidades, Genios del Show! 🌟 Hoy se convirtieron en verdaderos creadores de juegos y nos mostraron shows increíbles. Cada pregunta, cada respuesta y cada reacción es una prueba de su talento y habilidad. Recuerden siempre: ¡ustedes tienen el poder de crear mundos divertidos y emocionantes con su creatividad! ¡Nos vemos en nuestro próximo gran show!"</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (1 minuto):</strong> Proyectar la diapositiva 21 "Organización del Escenario". Pedir a los estudiantes que devuelvan los materiales (Magic Tablets, etc.) a su lugar correspondiente y que organicen el espacio de trabajo.</td>
+                         <td style="padding: 10px; vertical-align: top;">"¡Antes de que caiga el telón, debemos dejar nuestro escenario listo para el próximo show! 🌿 Por favor, devuelvan las Magic Tablets y todos los materiales a su lugar. Recuerden que un espacio limpio nos inspira para seguir creando y aprendiendo. ¡Gracias por su colaboración!"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+   </div>
+        <!-- Scripts adicionales -->
+    <script>
+        // Aquí puedes agregar más scripts si es necesario
+    </script>
+</body>
+</html>
